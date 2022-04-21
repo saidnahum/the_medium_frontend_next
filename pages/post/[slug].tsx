@@ -1,5 +1,5 @@
 import client from '../../services/graphql/apolloClient';
-import { bootstrap as bootstrapGlobalAgent } from 'global-agent';
+//import { bootstrap as bootstrapGlobalAgent } from 'global-agent';
 import { getPostsSlugsQuery, getPostBySlugQuery } from '../../services/graphql/queries';
 import Header from '../../components/Header';
 import { Post } from '../../services/typescript/interfaces';
@@ -29,7 +29,7 @@ const dateOptions = {
 }
 
 export const getStaticPaths = async () => {
-   bootstrapGlobalAgent();
+   //bootstrapGlobalAgent();
 
    const data = await client.query({ query: getPostsSlugsQuery });
    const posts = data.data.posts;
@@ -48,7 +48,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }: Params) => {
 
-   bootstrapGlobalAgent();
+   //bootstrapGlobalAgent();
 
    const res = await client.query({
       query: getPostBySlugQuery,

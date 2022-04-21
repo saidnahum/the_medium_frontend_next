@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import mediumMLogo from '../assets/img/medium-m.png'
 import Image from 'next/image'
-import { bootstrap as bootstrapGlobalAgent } from 'global-agent';
+//import { bootstrap as bootstrapGlobalAgent } from 'global-agent';
 import client from '../services/graphql/apolloClient';
 import { getPostsQuery, getFeaturedPostsQuery } from '../services/graphql/queries';
 import { Post } from '../services/typescript/interfaces';
@@ -89,7 +89,7 @@ export default Home
 
 export const getServerSideProps = async () => {
 
-	bootstrapGlobalAgent();
+	//bootstrapGlobalAgent();
 	const data = await client.query({query: getPostsQuery});
 	const posts = data.data.posts;
 

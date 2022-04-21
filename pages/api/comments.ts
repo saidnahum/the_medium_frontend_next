@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
-import { bootstrap as bootstrapGlobalAgent } from 'global-agent';
+//import { bootstrap as bootstrapGlobalAgent } from 'global-agent';
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_URI;
 const graphcmsToken = process.env.GRAPHCMS_TOKEN;
@@ -16,7 +16,7 @@ export default async function comments(
 ) {
   const { name, email, slug, comment } = req.body;
 
-  bootstrapGlobalAgent();
+  //bootstrapGlobalAgent();
 
   const graphQLClient = new ApolloClient({
     uri: graphqlAPI,

@@ -87,7 +87,10 @@ const Home = ({posts, featuredPosts}: Posts) => {
 
 export default Home
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context) => {
+	
+	const { res } = context;
+  	res.setHeader('Cache-Control', `s-maxage=60, stale-while-revalidate`) 
 
 	//bootstrapGlobalAgent();
 	const data = await client.query({query: getPostsQuery});
